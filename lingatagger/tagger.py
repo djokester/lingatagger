@@ -8,9 +8,9 @@ IIT Kharagpur
 
 from sklearn.neural_network import MLPClassifier
 import sentence as sent
-import gender as gndr
-import genderlist as gndrlist
-import tokenizer as tok
+import lingatagger.gender as gndr
+import lingatagger.genderlist as gndrlist
+import lingatagger.tokenizer as tok
 import gensim
 import logging
 import numpy as np
