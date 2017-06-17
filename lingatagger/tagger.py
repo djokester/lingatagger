@@ -7,7 +7,7 @@ IIT Kharagpur
 """
 
 from sklearn.neural_network import MLPClassifier
-import sentence as sent
+import lingatagger.sentence as sent
 import lingatagger.gender as gndr
 import lingatagger.genderlist as gndrlist
 import lingatagger.tokenizer as tok
