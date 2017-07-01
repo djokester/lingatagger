@@ -21,13 +21,13 @@ def genderdecode(genderTag):
     one-hot decoding for the gender tag predicted by the classfier
     Dimension = 2. 
     """
-    if genderTag == [1,0]:
+    if genderTag == [1, 0, 0]:
         code = 'm'
-    if genderTag == [0,1]:
+    if genderTag == [0, 1, 0]:
         code = 'f'
-    if genderTag == [1, 1]:
+    if genderTag == [0, 0, 1]:
         code = 'any'
-    if genderTag == [0,0]:
+    if genderTag == [0, 0, 1]:
         code = 'num'
     return code
 
