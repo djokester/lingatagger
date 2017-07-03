@@ -22,15 +22,14 @@ def genderdecode(genderTag):
     Dimension = 2. 
     """
     if genderTag == [1, 0, 0]:
-        code = 'm'
+        return 'm'
     if genderTag == [0, 1, 0]:
-        code = 'f'
+        return 'f'
     if genderTag == [0, 0, 1]:
-        code = 'any'
+        return 'any'
     if genderTag == [0, 0, 1]:
-        code = 'num'
-    return code
-
+        return 'num'
+    
 def numericTagger(instr):
     """
     numericTagger is a regex based tagger that tags Numbers with the tag "num"
@@ -134,7 +133,7 @@ def lookupTagger(instr):
 
     return(instr)
 
-def genderclassify(sentence):
+def genderclassify(sentence, ):
     """
     genderclassify tags with the help of multilayer perceptron classifier 
     trained over word vectors created with gensim's word2vec
@@ -160,7 +159,7 @@ def genderclassify(sentence):
     genders = gndr.drawlist()
     vector = [i[0] for i in genders]
     tags = [i[1] for i in genders]
-        
+    print(tags)    
     X = vector 
     y = tags
     clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
@@ -195,6 +194,6 @@ def Tagger(instr):
 
 if __name__ == '__main__':
     input_str = 'आपके इसी प्रेम को ध्यान में रख कर हम आपको विश्वास दिलाते हैं की इन्टरनेट के हर कोने से खोज कर हम आपके लिए बेहतरीन और उन्न्दा किस्म की पुस्तके मुफ्त उपलब्ध कराते रहंगे | हर दिन एक बेहतरीन पुस्तक आपकी राह देखेगी |'
-    print(Tagger(input_str))
+    #print(Tagger(input_str))
     print(genderclassify(input_str))
-    print(lookupTagger(input_str))
+    #print(lookupTagger(input_str))
