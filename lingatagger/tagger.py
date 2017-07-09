@@ -15,20 +15,21 @@ import gensim
 import logging
 import numpy as np
 import re
+import sangita_data.hindi.sentences.loadsent as sents
+import operator 
 
 def genderdecode(genderTag):
     """
     one-hot decoding for the gender tag predicted by the classfier
     Dimension = 2. 
     """
-    if genderTag == [1, 0, 0]:
+    index, value = max(enumerate(genderTag), key=operator.itemgetter(1))
+    if index == 0:
         return 'm'
-    if genderTag == [0, 1, 0]:
+    if index == 1:
         return 'f'
-    if genderTag == [0, 0, 1]:
+    if index == 2:
         return 'any'
-    if genderTag == [0, 0, 1]:
-        return 'num'
     
 def numericTagger(instr):
     """
@@ -133,7 +134,7 @@ def lookupTagger(instr):
 
     return(instr)
 
-def genderclassify(sentence, ):
+def genderclassify(sentence):
     """
     genderclassify tags with the help of multilayer perceptron classifier 
     trained over word vectors created with gensim's word2vec
@@ -144,15 +145,17 @@ def genderclassify(sentence, ):
     :rtype: List of Tuples.
     """
     sentences = sent.drawlist()
-    sentences = [tok.tokenize(i) for i in sentences]
-
-    sentence = tok.tokenize(sentence)
-    sentences.append(sentence)
+    sentences2 = sents.drawlist()
+    sentences2.append(sentence)
+    sentences = sentences + sentences2
+    sentences = [tok.wordtokenize(i) for i in sentences]
+    sentence = tok.wordtokenize(sentence)    
 
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     model = gensim.models.Word2Vec(sentences, size =10,  min_count=1)
 
     pred = []
+    
     for word in sentence:
         pred.append(model.wv[word].tolist())
         
@@ -162,10 +165,10 @@ def genderclassify(sentence, ):
     print(tags)    
     X = vector 
     y = tags
-    clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+    clf = MLPClassifier(solver='sgd', alpha= 1e-5,
                             hidden_layer_sizes=(5, 2), random_state=1)
     clf.fit(X, y)
-    predictions = clf.predict(pred).tolist()
+    predictions = clf.predict_proba(pred).tolist()
 
     predictions = [genderdecode(i) for i in predictions]
     print(predictions)
@@ -193,7 +196,8 @@ def Tagger(instr):
     return(instr)
 
 if __name__ == '__main__':
-    input_str = 'आपके इसी प्रेम को ध्यान में रख कर हम आपको विश्वास दिलाते हैं की इन्टरनेट के हर कोने से खोज कर हम आपके लिए बेहतरीन और उन्न्दा किस्म की पुस्तके मुफ्त उपलब्ध कराते रहंगे | हर दिन एक बेहतरीन पुस्तक आपकी राह देखेगी |'
-    #print(Tagger(input_str))
+    input_str = 'नीरजः हाँ माता जी! स्कूल ख़त्म होते सीधा घर आऊँगा'
+
+    print(Tagger(input_str))
     print(genderclassify(input_str))
-    #print(lookupTagger(input_str))
+    print(lookupTagger(input_str))
