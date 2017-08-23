@@ -7,7 +7,7 @@ IIT Kharagpur
 """
 
 import re 
-punctuations ='([?@[\\]<=>^_`{|}~!"#$%&\'()*+,-./:;])' #modify this string to add  more instances
+punctuations ='([?@[\\]<=>^_`{|।}~!"#$%&\'()*+,-./:;])' #modify this string to add  more instances
 """
 '?@[\\]<=>^_`{|}~!"#$%&\'()*+,-./:;]' the entire punctuation and common symbols set
 [ ] helps a single character present in a set
