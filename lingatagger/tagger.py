@@ -20,7 +20,7 @@ import operator
 def genderdecode(genderTag):
     """
     one-hot decoding for the gender tag predicted by the classfier
-    Dimension = 2. 
+    Dimension = 2.
     """
     index, value = max(enumerate(genderTag), key=operator.itemgetter(1))
     if index == 0:
