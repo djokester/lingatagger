@@ -17,7 +17,7 @@ if sys.version_info[:2] < (3, 5):
     print(('lingatagger requires Python version 3.5 or later (%d.%d detected).' %sys.version_info[:2]))
     sys.exit(-1)
 
-try:                  
+try:
     import gensim
 except ImportError:
     print('gensim must be installed to use lingatagger')
