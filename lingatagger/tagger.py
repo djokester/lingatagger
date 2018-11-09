@@ -13,7 +13,6 @@ import lingatagger.genderlist as gndrlist
 import lingatagger.tokenizer as tok
 import gensim
 import logging
-import numpy as np
 import re
 import sangita_data.hindi.sentences.loadsent as sents
 import operator 
