@@ -15,7 +15,7 @@ import gensim
 import logging
 import re
 import sangita_data.hindi.sentences.loadsent as sents
-import operator 
+import operator
 
 def genderdecode(genderTag):
     """
@@ -29,12 +29,12 @@ def genderdecode(genderTag):
         return 'f'
     if index == 2:
         return 'any'
-    
+
 def numericTagger(instr):
     """
     numericTagger is a regex based tagger that tags Numbers with the tag "num"
     :param instr: Can be a string, list of tokens or a list of tuples. 
-    It can be the string to be tagged, tokenized string or even a pre-tagged string 
+    It can be the string to be tagged, tokenized string or even a pre-tagged string
     :type inst: string, list of strings, list of tuples
     
     :return: Returns a List of tuples of the form [(token1, genderTag), (token2, genderTag)...]
