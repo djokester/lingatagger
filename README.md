@@ -1,7 +1,7 @@
 # lingatagger
 A Hindi Gender Tagger! 
 
-# Display Corpus
+## Display Corpus
 Displaying a list of sentences, there are a total of 19522 sentences!
 ``` python
 >>> import lingatagger.sentence as sents
@@ -19,7 +19,7 @@ Displaying a list of words with their respective genders. There are a total of 2
 
 ```
 
-# Tokenizer
+## Tokenizer
 
 Hindi tokenizer of three kinds simple, word, and sentence tokenizer!
 ```python
@@ -37,9 +37,7 @@ Hindi tokenizer of three kinds simple, word, and sentence tokenizer!
 ['विश्व भर में करोड़ों टीवी दर्शकों की उत्सुकता भरी निगाह के बीच मिस ऑस्ट्रेलिया जेनिफर हॉकिंस को मिस यूनिवर्स-२००४ का ताज पहनाया गया। ', 'करीब दो घंटे चले कार्यक्रम में विभिन्न देशों की ८० सुंदरियों के बीच २० वर्षीय हॉकिंस को सर्वश्रेष्ठ आंका गया। ', 'मिस अमेरिका शैंडी फिनेजी को प्रथम उप विजेता और मिस प्यूरेटो रिको अल्बा रेइज द्वितीय उप विजेता चुनी गई। ', 'भारत की तनुश्री दत्ता अंतिम १० प्रतिभागियों में ही स्थान बना पाई। ', 'हॉकिंस ने कहा कि जीत के बारे में उसने सपने में भी नहीं सोचा था।']
 ```
 
-# Gender Tagger
-
-
+## Gender Tagger
 ```python
 >>> import lingatagger.sentence as sents
 >>> import lingatagger.tagger as tagger
