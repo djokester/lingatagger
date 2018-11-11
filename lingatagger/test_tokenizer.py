@@ -1,4 +1,4 @@
-import lingataagger.tokenizer as tokenizer
+from . import tokenizer
 def test_tokenize():
     input_str = 'Hey there! Wassup? \n Nice Meeting You.\t Have a nice day.'
     out = tokenizer.tokenize(input_str)
