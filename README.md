@@ -1,6 +1,9 @@
 # lingatagger
 ![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)
-[ ![Codeship Status for djokester/lingatagger](https://app.codeship.com/projects/80bdb6c0-c769-0136-99fa-02b711961e9b/status?branch=master)](https://app.codeship.com/projects/314691)
+
+[![Codeship Status for djokester/lingatagger](https://app.codeship.com/projects/80bdb6c0-c769-0136-99fa-02b711961e9b/status?branch=master)](https://app.codeship.com/projects/314691)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/85e6e68340a44709ab5cbd6148eb90af)](https://www.codacy.com/app/djokester/lingatagger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=djokester/lingatagger&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/85e6e68340a44709ab5cbd6148eb90af)](https://www.codacy.com/app/djokester/lingatagger?utm_source=github.com&utm_medium=referral&utm_content=djokester/lingatagger&utm_campaign=Badge_Coverage)
 
 ![GitHub open pull requests](https://img.shields.io/github/issues-pr/djokester/lingatagger.svg) 
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/djokester/lingatagger.svg)
