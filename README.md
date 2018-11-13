@@ -1,5 +1,5 @@
 # lingatagger: A Hindi Gender Tagger! 
-## **_लिंग._** _Hindi. Meaning: Gender. Pronounced as Linga_
+## **_लिंग_** _(hindi, pron. linga): gender_
 
 ![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)
 
