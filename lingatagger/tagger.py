@@ -40,20 +40,20 @@ def numericTagger(instr):
     :return: Returns a List of tuples of the form [(token1, genderTag), (token2, genderTag)...]
     :rtype: List of Tuples.
     """
-    lst = type([1, 2, 3])
-    tup = type(("Hello", "Hi"))
-    string = type("Hello")
+    #lst = type([1, 2, 3])
+    #tup = type(("Hello", "Hi"))
+    #string = type("Hello")
     num_match = re.compile(r'([०१२३४५६७८९]+[\.\,]*)+[०१२३४५६७८९]+|([-+]*\d+[\.\,]*)+\d+|([०१२३४५६७८९]+|\d+)')
-    if type(instr) == lst:
+    if type(instr) == list:
         for index, item in enumerate(instr):
-            if type(item) == tup:
+            if type(item) == tuple:
                 if num_match.search(str(item[0])):
                     instr[index] = (instr[index][1], 'num')
             else:
                 if num_match.search(str(item)):
                     instr[index] = (instr[index], 'num')
     else: 
-        if type(instr) == string:
+        if type(instr) == str:
             instr = tok.tokenize(instr)
             numericTagger(instr)
         else:
@@ -196,7 +196,12 @@ def Tagger(instr):
 
 if __name__ == '__main__':
     input_str = 'नीरजः हाँ माता जी! स्कूल ख़त्म होते सीधा घर आऊँगा'
-
+    lst = ["1", "2", "3", "4"]
+    string = "०१२३४५६७८९ ०१२३"
+    print(numericTagger(lst))
+    print(numericTagger(string))
+    """
     print(Tagger(input_str))
     print(genderclassify(input_str))
     print(lookupTagger(input_str))
+    """

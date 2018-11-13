@@ -1,0 +1,7 @@
+[
+  "tests/test_tagger.py::test_numericTagger",
+  "tests/test_tagger.py::test_defaultTagger",
+  "tests/test_tokenizer.py::test_tokenize",
+  "tests/test_tokenizer.py::test_wordtokenize",
+  "tests/test_tokenizer.py::test_senttokenize"
+]

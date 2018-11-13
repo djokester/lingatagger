@@ -13,3 +13,8 @@ def test_senttokenize():
     input_str = 'Hey there! Wassup? \n Nice Meeting You.\t Have a nice day.'
     out = tokenizer.sentencetokenize(input_str)
     assert out == ['Hey there! ', 'Wassup? \n ', 'Nice Meeting You.\t ', 'Have a nice day.']
+
+
+test_tokenize()
+test_wordtokenize()
+test_senttokenize()

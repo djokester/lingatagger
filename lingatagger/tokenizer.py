@@ -81,4 +81,4 @@ if __name__ == '__main__':
     print(tokenize(input_str))
     print(tokenize(input_str,True))
     print(wordtokenize(input_str))
-    
+    print(sentencetokenize(input_str))
