@@ -1,4 +1,6 @@
-# lingatagger
+# lingatagger: A Hindi Gender Tagger! 
+## **_लिंग._** _Hindi. Meaning: Gender. Pronounced as Linga_
+
 ![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)
 
 [![Codeship Status for djokester/lingatagger](https://app.codeship.com/projects/80bdb6c0-c769-0136-99fa-02b711961e9b/status?branch=master)](https://app.codeship.com/projects/314691)
@@ -11,7 +13,6 @@
 ![GitHub open issues](https://img.shields.io/github/issues/djokester/lingatagger.svg)
 
 
-A Hindi Gender Tagger! 
 
 ## Display Corpus
 Displaying a list of sentences, there are a total of 19522 sentences!
