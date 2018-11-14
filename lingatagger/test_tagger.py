@@ -1,5 +1,4 @@
-import lingatagger.tagger as tagger
-
+from . import tagger 
 input_str = 'नीरजः हाँ माता जी! स्कूल ख़त्म होते सीधा घर आऊँगा'
 def test_numericTagger():
     lst = ["1", "2", "3", "4"]
@@ -13,5 +12,6 @@ def test_defaultTagger():
     assert tagger.defaultTagger(lst) == [('1', 'any'), ('2', 'any'), ('3', 'any'), ('4', 'any')]
     assert tagger.defaultTagger(string) == [('०१२३४५६७८९', 'any'), ('०१२३', 'any')]
 
-test_numericTagger()
-test_defaultTagger()
+if __name__ == '__main__':
+    test_numericTagger()
+    test_defaultTagger()

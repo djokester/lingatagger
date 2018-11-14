@@ -1,4 +1,4 @@
-import lingatagger.tokenizer as tokenizer
+from . import tokenizer
 def test_tokenize():
     input_str = 'Hey there! Wassup? \n Nice Meeting You.\t Have a nice day.'
     out = tokenizer.tokenize(input_str)
@@ -14,7 +14,7 @@ def test_senttokenize():
     out = tokenizer.sentencetokenize(input_str)
     assert out == ['Hey there! ', 'Wassup? \n ', 'Nice Meeting You.\t ', 'Have a nice day.']
 
-
-test_tokenize()
-test_wordtokenize()
-test_senttokenize()
+if __name__ == '__main__':
+    test_tokenize()
+    test_wordtokenize()
+    test_senttokenize()
