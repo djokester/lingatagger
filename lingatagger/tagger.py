@@ -6,27 +6,30 @@ Samriddhi Sinha,
 IIT Kharagpur
 """
 
-from sklearn.neural_network import MLPClassifier
-import lingatagger.sentence as sent
-import lingatagger.gender as gndr
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+from keras.layers import Embedding
+from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
+import numpy as np
 import lingatagger.genderlist as gndrlist
 import lingatagger.tokenizer as tok
 import gensim
 import logging
 import re
 import sangita_data.hindi.sentences.loadsent as sents
-import operator
+import heapq
 
 def genderdecode(genderTag):
     """
     one-hot decoding for the gender tag predicted by the classfier
     Dimension = 2.
     """
-    index, value = max(enumerate(genderTag), key=operator.itemgetter(1))
+    genderTag = list(genderTag[0])
+    index = genderTag.index(heapq.nlargest(1, genderTag)[0])
     if index == 0:
-        return 'm'
-    if index == 1:
         return 'f'
+    if index == 1:
+        return 'm'
     if index == 2:
         return 'any'
 
@@ -133,6 +136,30 @@ def lookupTagger(instr):
 
     return(instr)
 
+def encodex(text):
+    s = list(text)
+    a = list(set(list("ऀँंःऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसहऺऻ़ऽािीुूृॄॅॆेैॉॊोौ्ॎॏॐ॒॑॓॔ॕॖॗक़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰ॱॲॳॴॵॶॷॸॹॺॻॼॽॾॿ-")))
+    indices = []
+    for i in s:
+        indices.append(a.index(i))
+    encoded = np.zeros([18, len(a)+1], dtype="int")
+    k = 0
+    for i in indices:
+        encoded[k][i] = 1
+        k = k + 1
+    for i in range(18-len(list(s))):
+        encoded[k+i][len(a)] = 1
+    return encoded
+
+def encodey(text):
+    if text == "f":
+        return [1,0,0]
+    else:
+        if text == "m":
+            return [0,1,0]
+        else:
+            return [0,0,1] 
+
 def genderclassify(sentence):
     """
     genderclassify tags with the help of multilayer perceptron classifier 
@@ -143,39 +170,45 @@ def genderclassify(sentence):
     :return: Returns a List of tuples of the form [(token1, genderTag), (token2, genderTag)...]
     :rtype: List of Tuples.
     """
-    sentences = sent.drawlist()
-    sentences2 = sents.drawlist()
-    sentences2.append(sentence)
-    sentences = sentences + sentences2
-    sentences = [tok.wordtokenize(i) for i in sentences]
-    sentence = tok.wordtokenize(sentence)    
-
-    logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-    model = gensim.models.Word2Vec(sentences, size =10,  min_count=1)
-
-    pred = []
+    sentence = tok.wordtokenize(sentence)   
+    genders = gndrlist.drawlist()
+    lst = []
+    a = list(set(list("ऀँंःऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसहऺऻ़ऽािीुूृॄॅॆेैॉॊोौ्ॎॏॐ॒॑॓॔ॕॖॗक़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰ॱॲॳॴॵॶॷॸॹॺॻॼॽॾॿ-")))
+    for i in genders:
+        x = i.split("\t")
+        if type(numericTagger(x[0])[0]) != tuple:
+            lst.append(x)    
     
-    for word in sentence:
-        pred.append(model.wv[word].tolist())
-        
-    genders = gndr.drawlist()
-    vector = [i[0] for i in genders]
-    tags = [i[1] for i in genders]
-    print(tags)    
-    X = vector 
-    y = tags
-    clf = MLPClassifier(solver='sgd', alpha= 1e-5,
-                            hidden_layer_sizes=(5, 2), random_state=1)
-    clf.fit(X, y)
-    predictions = clf.predict_proba(pred).tolist()
+    x = []
+    y = []
+    for i in lst:
+        a = list(set(list("ऀँंःऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसहऺऻ़ऽािीुूृॄॅॆेैॉॊोौ्ॎॏॐ॒॑॓॔ॕॖॗक़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰ॱॲॳॴॵॶॷॸॹॺॻॼॽॾॿ-")))
+        count = 0
+        for ch in list(i[0]):
+            if ch not in a:
+                count+=1
+        if count == 0:
+            x.append(encodex(i[0]))
+            y.append(encodey(i[1]))
 
-    predictions = [genderdecode(i) for i in predictions]
-    print(predictions)
+    X = np.array(x)
+    Y = np.array(y)
+    model = Sequential()
+    model.add(Conv1D(64, 3, activation='relu', input_shape=(18, 130)))
+    model.add(Conv1D(64, 3, activation='relu'))
+    model.add(MaxPooling1D(3))
+    model.add(GlobalAveragePooling1D())
+    model.add(Dropout(0.5))
+    model.add(Dense(3, activation='softmax'))
+    model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    model.fit(X, Y, batch_size=16, epochs=10)
+
+    result = []
+    for token in sentence:
+        a = model.predict(np.array(encodex(token).reshape((1,18,130))))
+        result.append((token, genderdecode(a)))
     
-    for index,item in enumerate(sentence):
-        sentence[index] = (sentence[index], predictions[index])
-    
-    return(sentence)
+    return(result)
     
           
 def Tagger(instr):
@@ -198,10 +231,10 @@ if __name__ == '__main__':
     input_str = 'नीरजः हाँ माता जी! स्कूल ख़त्म होते सीधा घर आऊँगा'
     lst = ["1", "2", "3", "4"]
     string = "०१२३४५६७८९ ०१२३"
+    """
     print(numericTagger(lst))
     print(numericTagger(string))
     """
     print(Tagger(input_str))
     print(genderclassify(input_str))
     print(lookupTagger(input_str))
-    """
