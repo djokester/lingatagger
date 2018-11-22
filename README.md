@@ -63,3 +63,7 @@ Hindi tokenizer of three kinds simple, word, and sentence tokenizer!
 [('विश्व', 'm'), ('भर', 'any'), ('में', 'any'), ('करोड़ों', 'any'), ('टीवी', 'm'), ('दर्शकों', 'm'), ('की', 'any'), ('उत्सुकता', 'f'), ('भरी', 'f'), ('निगाह', 'f'), ('के', 'any'), ('बीच', 'any'), ('मिस', 'any'), ('ऑस्ट्रेलिया', 'm'), ('जेनिफर', 'f'), ('हॉकिंस', 'f'), ('को', 'any'), ('मिस', 'any'), ('यूनिवर्स', 'm'), ('-', 'any'), ('any', 'num'), ('का', 'any'), ('ताज', 'm'), ('पहनाया', 'm'), ('गया।', 'any'), ('करीब', 'any'), ('दो', 'any'), ('घंटे', 'm'), ('चले', 'any'), ('कार्यक्रम', 'm'), ('में', 'any'), ('विभिन्न', 'any'), ('देशों', 'm'), ('की', 'any'), ('any', 'num'), ('सुंदरियों', 'f'), ('के', 'any'), ('बीच', 'any'), ('any', 'num'), ('वर्षीय', 'any'), ('हॉकिंस', 'f'), ('को', 'any'), ('सर्वश्रेष्ठ', 'any'), ('आंका', 'any'), ('गया।', 'any')]
 
 ```
+
+## Accuracy 
+Lingatagger uses 1D convolutions to classify the gender of a word by taking it's sequence of characters as input. 
+The accuracy of this neural tagger is 83.74% on the training set and 
