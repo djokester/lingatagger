@@ -7,6 +7,7 @@ IIT Kharagpur
 """
 
 import sys
+import subprocess
 from setuptools import setup
 
 if sys.argv[-1] == 'setup.py':
@@ -18,10 +19,14 @@ if sys.version_info[:2] < (3, 5):
     sys.exit(-1)
 
 try:
-    import gensim
+    import tensorflow
 except ImportError:
-    print('gensim must be installed to use lingatagger')
-    sys.exit(-1)
+    try:
+        subprocess.call(['pip', 'install', "tensorflow"])
+        import tensorflow
+    except ImportError:
+        print('tensorflow must be installed to use lingatagger')
+        sys.exit(-1)
 
 try:                  
     import re
@@ -29,12 +34,16 @@ except ImportError:
     print('re must be installed to use lingatagger')
     sys.exit(-1)
 
-try:                  
-    import sklearn
+try:
+    import keras
 except ImportError:
-    print('sklearn must be installed to use lingatagger')
-    sys.exit(-1)
-
+    try:
+        subprocess.call(['pip', 'install', "keras"])
+        import tensorflow
+    except ImportError:
+        print('keras must be installed to use lingatagger')
+        sys.exit(-1)
+        
 sys.path.insert(0, 'lingatagger')
 
 
