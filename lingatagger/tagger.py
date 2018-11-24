@@ -13,10 +13,7 @@ from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
 import numpy as np
 import lingatagger.genderlist as gndrlist
 import lingatagger.tokenizer as tok
-import gensim
-import logging
 import re
-import sangita_data.hindi.sentences.loadsent as sents
 import heapq
 
 def genderdecode(genderTag):
