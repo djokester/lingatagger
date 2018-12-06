@@ -12,6 +12,8 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/djokester/lingatagger.svg)
 ![GitHub open issues](https://img.shields.io/github/issues/djokester/lingatagger.svg)
 
+**KWoC Communication channel:** [Slack](https://join.slack.com/t/sangitanlp/shared_invite/enQtMzc2NzMzODQ2ODU1LTRkOTUwODViMDBlNjIzZGNhZWIzNzc5MjM0Y2Y3YjYzMWY1NThjYmVkY2Y4M2RhODU5NzQ0MzZmODE4NmQ4ZmU)
+
 
 
 ## Display Corpus
