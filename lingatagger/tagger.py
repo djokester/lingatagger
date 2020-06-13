@@ -191,18 +191,18 @@ def genderclassify(sentence):
     X = np.array(x)
     Y = np.array(y)
     model = Sequential()
-    model.add(Conv1D(64, 3, activation='relu', input_shape=(18, 130)))
+    model.add(Conv1D(128, 3, activation='relu', input_shape=(18, len(a)+1)))
     model.add(Conv1D(64, 3, activation='relu'))
     model.add(MaxPooling1D(3))
     model.add(GlobalAveragePooling1D())
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.4))
     model.add(Dense(3, activation='softmax'))
-    model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.fit(X, Y, batch_size=16, epochs=10)
 
     result = []
     for token in sentence:
-        a = model.predict(np.array(encodex(token).reshape((1,18,130))))
+        a = model.predict(np.array(encodex(token).reshape((1,18, len(a)+1))))
         result.append((token, genderdecode(a)))
     
     return(result)
