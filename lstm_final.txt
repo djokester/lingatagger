@@ -1,0 +1,235 @@
+Training new model, loss:categorical_crossentropy, optimizer=nadam, lstm_len=256, dropoff=0.5
+Epoch 1/20
+ - 4s - loss: 0.9810 - acc: 0.5225
+Epoch 2/20
+ - 2s - loss: 0.8479 - acc: 0.6197
+Epoch 3/20
+ - 2s - loss: 0.7946 - acc: 0.6501
+Epoch 4/20
+ - 2s - loss: 0.7552 - acc: 0.6692
+Epoch 5/20
+ - 2s - loss: 0.7222 - acc: 0.6875
+Epoch 6/20
+ - 2s - loss: 0.6907 - acc: 0.7061
+Epoch 7/20
+ - 2s - loss: 0.6622 - acc: 0.7191
+Epoch 8/20
+ - 2s - loss: 0.6400 - acc: 0.7305
+Epoch 9/20
+ - 2s - loss: 0.6246 - acc: 0.7385
+Epoch 10/20
+ - 2s - loss: 0.6129 - acc: 0.7448
+Epoch 11/20
+ - 2s - loss: 0.6020 - acc: 0.7483
+Epoch 12/20
+ - 2s - loss: 0.5922 - acc: 0.7542
+Epoch 13/20
+ - 2s - loss: 0.5833 - acc: 0.7582
+Epoch 14/20
+ - 2s - loss: 0.5744 - acc: 0.7619
+Epoch 15/20
+ - 2s - loss: 0.5647 - acc: 0.7661
+Epoch 16/20
+ - 2s - loss: 0.5598 - acc: 0.7668
+Epoch 17/20
+ - 2s - loss: 0.5522 - acc: 0.7714
+Epoch 18/20
+ - 2s - loss: 0.5411 - acc: 0.7762
+Epoch 19/20
+ - 2s - loss: 0.5340 - acc: 0.7800
+Epoch 20/20
+ - 2s - loss: 0.5242 - acc: 0.7842
+test score: [0.6302039141650398, 0.7469918007300236]
+recall: array([0.78779722, 0.46159696, 0.89254192])
+precision: array([0.7766475 , 0.80879414, 0.71860011])
+true count:array([2229, 2630, 4532])
+predict count:array([2261, 1501, 5629])
+
+Training new model, loss:categorical_crossentropy, optimizer=nadam, lstm_len=256, dropoff=0.6
+Epoch 1/20
+ - 3s - loss: 0.9785 - acc: 0.5247
+Epoch 2/20
+ - 3s - loss: 0.8330 - acc: 0.6295
+Epoch 3/20
+ - 2s - loss: 0.7872 - acc: 0.6536
+Epoch 4/20
+ - 2s - loss: 0.7467 - acc: 0.6762
+Epoch 5/20
+ - 2s - loss: 0.7118 - acc: 0.6980
+Epoch 6/20
+ - 3s - loss: 0.6812 - acc: 0.7111
+Epoch 7/20
+ - 2s - loss: 0.6546 - acc: 0.7254
+Epoch 8/20
+ - 2s - loss: 0.6392 - acc: 0.7322
+Epoch 9/20
+ - 2s - loss: 0.6218 - acc: 0.7390
+Epoch 10/20
+ - 3s - loss: 0.6103 - acc: 0.7449
+Epoch 11/20
+ - 3s - loss: 0.6006 - acc: 0.7498
+Epoch 12/20
+ - 2s - loss: 0.5925 - acc: 0.7551
+Epoch 13/20
+ - 2s - loss: 0.5843 - acc: 0.7576
+Epoch 14/20
+ - 3s - loss: 0.5739 - acc: 0.7636
+Epoch 15/20
+ - 2s - loss: 0.5669 - acc: 0.7670
+Epoch 16/20
+ - 2s - loss: 0.5578 - acc: 0.7693
+Epoch 17/20
+ - 2s - loss: 0.5515 - acc: 0.7727
+Epoch 18/20
+ - 3s - loss: 0.5423 - acc: 0.7760
+Epoch 19/20
+ - 3s - loss: 0.5352 - acc: 0.7783
+Epoch 20/20
+ - 2s - loss: 0.5295 - acc: 0.7846
+test score: [0.6168098066475378, 0.740922159120915]
+recall: array([0.77837595, 0.51330798, 0.85458959])
+precision: array([0.76499118, 0.74421169, 0.72951592])
+true count:array([2229, 2630, 4532])
+predict count:array([2268, 1814, 5309])
+
+Training new model, loss:categorical_crossentropy, optimizer=nadam, lstm_len=128, dropoff=0.45
+Epoch 1/20
+ - 3s - loss: 0.9527 - acc: 0.5465
+Epoch 2/20
+ - 2s - loss: 0.8189 - acc: 0.6384
+Epoch 3/20
+ - 2s - loss: 0.7798 - acc: 0.6582
+Epoch 4/20
+ - 2s - loss: 0.7443 - acc: 0.6757
+Epoch 5/20
+ - 2s - loss: 0.7187 - acc: 0.6927
+Epoch 6/20
+ - 2s - loss: 0.6914 - acc: 0.7078
+Epoch 7/20
+ - 2s - loss: 0.6688 - acc: 0.7199
+Epoch 8/20
+ - 2s - loss: 0.6519 - acc: 0.7258
+Epoch 9/20
+ - 2s - loss: 0.6374 - acc: 0.7351
+Epoch 10/20
+ - 2s - loss: 0.6281 - acc: 0.7367
+Epoch 11/20
+ - 2s - loss: 0.6148 - acc: 0.7436
+Epoch 12/20
+ - 2s - loss: 0.6079 - acc: 0.7470
+Epoch 13/20
+ - 2s - loss: 0.6025 - acc: 0.7492
+Epoch 14/20
+ - 2s - loss: 0.5923 - acc: 0.7549
+Epoch 15/20
+ - 2s - loss: 0.5870 - acc: 0.7566
+Epoch 16/20
+ - 2s - loss: 0.5800 - acc: 0.7597
+Epoch 17/20
+ - 2s - loss: 0.5736 - acc: 0.7629
+Epoch 18/20
+ - 2s - loss: 0.5680 - acc: 0.7647
+Epoch 19/20
+ - 2s - loss: 0.5596 - acc: 0.7686
+Epoch 20/20
+ - 2s - loss: 0.5565 - acc: 0.7685
+test score: [0.6083490266394734, 0.7478436804048779]
+recall: array([0.80978017, 0.56844106, 0.82149162])
+precision: array([0.75271059, 0.71224393, 0.76072742])
+true count:array([2229, 2630, 4532])
+predict count:array([2398, 2099, 4894])
+
+Training new model, loss:categorical_crossentropy, optimizer=nadam, lstm_len=256, dropoff=0.55
+Epoch 1/20
+ - 3s - loss: 0.9601 - acc: 0.5402
+Epoch 2/20
+ - 2s - loss: 0.8353 - acc: 0.6303
+Epoch 3/20
+ - 2s - loss: 0.7868 - acc: 0.6551
+Epoch 4/20
+ - 2s - loss: 0.7434 - acc: 0.6751
+Epoch 5/20
+ - 2s - loss: 0.7061 - acc: 0.7009
+Epoch 6/20
+ - 2s - loss: 0.6691 - acc: 0.7176
+Epoch 7/20
+ - 2s - loss: 0.6462 - acc: 0.7292
+Epoch 8/20
+ - 2s - loss: 0.6314 - acc: 0.7358
+Epoch 9/20
+ - 2s - loss: 0.6186 - acc: 0.7419
+Epoch 10/20
+ - 2s - loss: 0.6059 - acc: 0.7477
+Epoch 11/20
+ - 2s - loss: 0.5962 - acc: 0.7515
+Epoch 12/20
+ - 2s - loss: 0.5861 - acc: 0.7575
+Epoch 13/20
+ - 2s - loss: 0.5763 - acc: 0.7599
+Epoch 14/20
+ - 2s - loss: 0.5692 - acc: 0.7644
+Epoch 15/20
+ - 2s - loss: 0.5608 - acc: 0.7681
+Epoch 16/20
+ - 3s - loss: 0.5538 - acc: 0.7738
+Epoch 17/20
+ - 3s - loss: 0.5422 - acc: 0.7763
+Epoch 18/20
+ - 3s - loss: 0.5344 - acc: 0.7802
+Epoch 19/20
+ - 2s - loss: 0.5265 - acc: 0.7813
+Epoch 20/20
+ - 2s - loss: 0.5187 - acc: 0.7851
+test score: [0.6389361278480925, 0.7334682147808317]
+recall: array([0.74203679, 0.68136882, 0.75948808])
+precision: array([0.78724417, 0.62287105, 0.77996828])
+true count:array([2229, 2630, 4532])
+predict count:array([2101, 2877, 4413])
+
+Training new model, loss:categorical_crossentropy, optimizer=nadam, lstm_len=128, dropoff=0.4
+Epoch 1/20
+ - 3s - loss: 0.9552 - acc: 0.5456
+Epoch 2/20
+ - 2s - loss: 0.8251 - acc: 0.6309
+Epoch 3/20
+ - 2s - loss: 0.7802 - acc: 0.6580
+Epoch 4/20
+ - 2s - loss: 0.7459 - acc: 0.6768
+Epoch 5/20
+ - 2s - loss: 0.7204 - acc: 0.6918
+Epoch 6/20
+ - 2s - loss: 0.6925 - acc: 0.7051
+Epoch 7/20
+ - 2s - loss: 0.6720 - acc: 0.7170
+Epoch 8/20
+ - 2s - loss: 0.6547 - acc: 0.7260
+Epoch 9/20
+ - 2s - loss: 0.6383 - acc: 0.7319
+Epoch 10/20
+ - 2s - loss: 0.6280 - acc: 0.7382
+Epoch 11/20
+ - 2s - loss: 0.6163 - acc: 0.7438
+Epoch 12/20
+ - 2s - loss: 0.6087 - acc: 0.7456
+Epoch 13/20
+ - 2s - loss: 0.6001 - acc: 0.7500
+Epoch 14/20
+ - 2s - loss: 0.5927 - acc: 0.7537
+Epoch 15/20
+ - 2s - loss: 0.5850 - acc: 0.7553
+Epoch 16/20
+ - 2s - loss: 0.5789 - acc: 0.7603
+Epoch 17/20
+ - 2s - loss: 0.5733 - acc: 0.7632
+Epoch 18/20
+ - 2s - loss: 0.5683 - acc: 0.7639
+Epoch 19/20
+ - 2s - loss: 0.5594 - acc: 0.7683
+Epoch 20/20
+ - 2s - loss: 0.5546 - acc: 0.7712
+test score: [0.6255221732532796, 0.7410286443008298]
+recall: array([0.77747869, 0.65665399, 0.77206531])
+precision: array([0.7743521 , 0.65740388, 0.77308882])
+true count:array([2229, 2630, 4532])
+predict count:array([2238, 2627, 4526])
+
